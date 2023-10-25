@@ -1,4 +1,11 @@
 package com.bioproj.repository;
 
-public class WorkflowRepository {
+import com.bioproj.pojo.Workflows;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface WorkflowRepository  extends MongoRepository<Workflows, String> {
+
+
 }

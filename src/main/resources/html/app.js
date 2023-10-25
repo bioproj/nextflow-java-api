@@ -119,9 +119,16 @@ app.service('api', ['$http', '$q', function($http, $q) {
 	this.Workflow.get = function(id) {
 		return httpRequest('get', `api/workflows/${id}`)
 	}
+	this.Workflow.files = function() {
+		return httpRequest('get', `api/files/list`)
+	}
+	this.Workflow.gitea = function() {
+		return httpRequest('get', `api/gitea/mbiolance-bioinfo/list`)
+	}
+
 
 	this.Workflow.save = function(workflow) {
-		return httpRequest('post', `api/workflows/${workflow._id}`, null, workflow)
+		return httpRequest('post', `api/workflows/${workflow.id}`, null, workflow)
 	}
 
 	this.Workflow.launch = function(id) {
@@ -239,11 +246,11 @@ app.controller('WorkflowsCtrl', ['$scope', '$route', 'alert', 'api', function($s
 	}
 
 	$scope.delete = function(w) {
-		if ( !confirm(`Are you sure you want to delete \"${w._id}\"?`) ) {
+		if ( !confirm(`Are you sure you want to delete \"${w.id}\"?`) ) {
 			return
 		}
 
-		api.Workflow.remove(w._id)
+		api.Workflow.remove(w.id)
 			.then(function() {
 				alert.success('Workflow instance deleted.')
 				$route.reload()
@@ -261,6 +268,8 @@ app.controller('WorkflowsCtrl', ['$scope', '$route', 'alert', 'api', function($s
 app.controller('WorkflowCtrl', ['$scope', '$interval', '$route', 'alert', 'api', 'FileUploader', function($scope, $interval, $route, alert, api, FileUploader) {
 	$scope.STATUS_COLORS = STATUS_COLORS
 	$scope.workflow = {}
+	$scope.files = []
+	$scope.gitea = []
 
 	$scope.uploader = new FileUploader({
 		 url: `${window.location.pathname}api/workflows/${$route.current.params.id}/upload`
@@ -281,7 +290,7 @@ app.controller('WorkflowCtrl', ['$scope', '$interval', '$route', 'alert', 'api',
 		api.Workflow.save(workflow)
 			.then(function(res) {
 				alert.success('Workflow instance saved.')
-				$route.updateParams({ id: res._id })
+				$route.updateParams({ id: res.id })
 			}, function() {
 				alert.error('Failed to save workflow instance.')
 			})
@@ -344,7 +353,7 @@ app.controller('WorkflowCtrl', ['$scope', '$interval', '$route', 'alert', 'api',
 		}
 
 		$scope.intervalPromise = $interval(function() {
-			api.Workflow.log($scope.workflow._id)
+			api.Workflow.log($scope.workflow.id)
 				.then(function(res) {
 					Object.assign($scope.workflow, res)
 
@@ -367,12 +376,28 @@ app.controller('WorkflowCtrl', ['$scope', '$interval', '$route', 'alert', 'api',
 		.then(function(workflow) {
 			$scope.workflow = workflow
 
-			if ( $scope.workflow._id !== '0' ) {
+			if ( $scope.workflow.id !== '0' ) {
 				$scope.fetchLog()
 			}
 		}, function() {
 			alert.error('Failed to load workflow.')
 		})
+
+		
+	api.Workflow.gitea()
+		.then(function(gitea) {
+			$scope.gitea = gitea
+
+		}, function() {
+			alert.error('Failed to load gitea.')
+		})
+	// api.Workflow.files()
+	// 	.then(function(files) {
+	// 		$scope.files = files
+
+	// 	}, function() {
+	// 		alert.error('Failed to load files.')
+	// 	})
 }])
 
 

@@ -1,0 +1,73 @@
+Oct-24 17:15:53.046 [main] DEBUG nextflow.cli.Launcher - $> /home/wangyang/workspace/nextflow/build/releases/nextflow-22.11.0-edge-all -log output/nextflow.log run 'http://192.168.10.178:3000/mbiolance-bioinfo/nf-hello.git' -name workflow-65373a24d8fb1f4a1d32faf7-43 -profile standard
+Oct-24 17:15:53.085 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 22.11.0-edge
+Oct-24 17:15:53.098 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/wangyang/.nextflow/plugins; core-plugins: nf-amazon@1.12.0,nf-azure@0.15.0,nf-codecommit@0.1.2,nf-console@1.0.4,nf-ga4gh@1.0.4,nf-google@1.4.5,nf-hello@0.4.0,nf-tower@1.5.6,nf-wave@0.6.0
+Oct-24 17:15:53.105 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-24 17:15:53.106 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-24 17:15:53.108 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Oct-24 17:15:53.114 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-24 17:15:53.122 [main] DEBUG nextflow.scm.ProviderConfig - Using SCM config path: /home/wangyang/.nextflow/scm
+Oct-24 17:15:53.461 [main] DEBUG nextflow.scm.ProviderConfig - Detected SCM config: [providers:[mygitea:[server:http://192.168.10.178:3000, endpoint:http://192.168.10.178:3000/api/v1, platform:gitea], gitee:[user:wangyang1749, password:wy1****, token:a9e****]]]
+Oct-24 17:15:53.485 [main] DEBUG nextflow.scm.RepositoryFactory - Found Git repository result: [RepositoryFactory]
+Oct-24 17:15:53.499 [main] DEBUG nextflow.scm.RepositoryFactory - Git url=nextflow.scm.GitUrl(http, null, 192.168.10.178:3000, mbiolance-bioinfo/nf-hello) -> config=ProviderConfig[name: mygitea, platform: gitea, server: http://192.168.10.178:3000]
+Oct-24 17:15:53.499 [main] INFO  nextflow.scm.AssetManager - Repository URL: http://192.168.10.178:3000/mbiolance-bioinfo/nf-hello.git; Project: mbiolance-bioinfo/nf-hello; Hub provider: mygitea
+Oct-24 17:15:53.521 [main] DEBUG nextflow.scm.AssetManager - Git config: /home/wangyang/.nextflow/assets/mbiolance-bioinfo/nf-hello/.git/config; branch: master; remote: origin; url: http://192.168.10.178:3000/mbiolance-bioinfo/nf-hello.git
+Oct-24 17:15:53.673 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /home/wangyang/.nextflow/assets/mbiolance-bioinfo/nf-hello/nextflow.config
+Oct-24 17:15:53.674 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/wangyang/.nextflow/assets/mbiolance-bioinfo/nf-hello/nextflow.config
+Oct-24 17:15:53.680 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Oct-24 17:15:53.708 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declararion
+Oct-24 17:15:53.709 [main] INFO  nextflow.cli.CmdRun - Launching `http://192.168.10.178:3000/mbiolance-bioinfo/nf-hello` [workflow-65373a24d8fb1f4a1d32faf7-43] DSL2 - revision: 1d71f857bb [master]
+Oct-24 17:15:53.709 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Oct-24 17:15:53.710 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Oct-24 17:15:53.712 [main] DEBUG nextflow.secret.LocalSecretsProvider - Secrets store: /home/wangyang/.nextflow/secrets/store.json
+Oct-24 17:15:53.714 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@36224f93] - activable => nextflow.secret.LocalSecretsProvider@36224f93
+Oct-24 17:15:53.755 [main] DEBUG nextflow.Session - Session UUID: 4a3d413c-03de-4716-a116-09364da9a377
+Oct-24 17:15:53.755 [main] DEBUG nextflow.Session - Run name: workflow-65373a24d8fb1f4a1d32faf7-43
+Oct-24 17:15:53.755 [main] DEBUG nextflow.Session - Executor pool size: 12
+Oct-24 17:15:53.763 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Oct-24 17:15:53.777 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 22.11.0-edge build 5828
+  Created: 23-11-2022 16:51 UTC (24-11-2022 00:51 CDT)
+  System: Linux 5.15.0-86-generic
+  Runtime: Groovy 3.0.13 on Java HotSpot(TM) 64-Bit Server VM 11.0.16.1+1-LTS-1
+  Encoding: UTF-8 (UTF-8)
+  Process: 2721543@wangyang-MS-7D46 [127.0.1.1]
+  CPUs: 12 - Mem: 31.2 GB (370.4 MB) - Swap: 11.4 GB (6 GB)
+Oct-24 17:15:53.787 [main] DEBUG nextflow.Session - Work-dir: /home/wangyang/workspace/nextflow-java-api/workDir/65373a24d8fb1f4a1d32faf7/work [ext2/ext3]
+Oct-24 17:15:53.787 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/wangyang/.nextflow/assets/mbiolance-bioinfo/nf-hello/bin
+Oct-24 17:15:53.806 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[GoogleLifeSciencesExecutor, AwsBatchExecutor, GoogleBatchExecutor]
+Oct-24 17:15:53.815 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Oct-24 17:15:53.817 [main] DEBUG nextflow.Session - Observer factory: HelloFactory
+Oct-24 17:15:53.818 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Oct-24 17:15:53.830 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Oct-24 17:15:53.838 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
+Oct-24 17:15:53.934 [main] DEBUG nextflow.Session - Session start
+Oct-24 17:15:53.940 [main] INFO  nextflow.hello.HelloObserver - Pipeline is starting! 🚀
+Oct-24 17:15:54.047 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Oct-24 17:15:54.115 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-24 17:15:54.115 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-24 17:15:54.118 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Oct-24 17:15:54.121 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=12; memory=31.2 GB; capacity=12; pollInterval=100ms; dumpInterval=5m
+Oct-24 17:15:54.207 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: sayHello
+Oct-24 17:15:54.207 [main] DEBUG nextflow.Session - Igniting dataflow network (2)
+Oct-24 17:15:54.207 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > sayHello
+Oct-24 17:15:54.208 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Oct-24 17:15:54.208 [main] DEBUG nextflow.Session - Session await
+Oct-24 17:15:54.300 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-24 17:15:54.302 [Task submitter] INFO  nextflow.Session - [4b/25931d] Submitted process > sayHello (1)
+Oct-24 17:15:54.307 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-24 17:15:54.307 [Task submitter] INFO  nextflow.Session - [1e/fd75c9] Submitted process > sayHello (4)
+Oct-24 17:15:54.310 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-24 17:15:54.310 [Task submitter] INFO  nextflow.Session - [e3/766829] Submitted process > sayHello (2)
+Oct-24 17:15:54.313 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-24 17:15:54.313 [Task submitter] INFO  nextflow.Session - [7c/3393da] Submitted process > sayHello (3)
+Oct-24 17:15:54.335 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: sayHello (1); status: COMPLETED; exit: 0; error: -; workDir: /home/wangyang/workspace/nextflow-java-api/workDir/65373a24d8fb1f4a1d32faf7/work/4b/25931ded3749ff024e482b8098d0d4]
+Oct-24 17:15:54.341 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: sayHello (4); status: COMPLETED; exit: 0; error: -; workDir: /home/wangyang/workspace/nextflow-java-api/workDir/65373a24d8fb1f4a1d32faf7/work/1e/fd75c98b3bfbcc4f83199c84a28a61]
+Oct-24 17:15:54.344 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: sayHello (2); status: COMPLETED; exit: 0; error: -; workDir: /home/wangyang/workspace/nextflow-java-api/workDir/65373a24d8fb1f4a1d32faf7/work/e3/766829d62c5ff96b459dc0e825ee4e]
+Oct-24 17:15:54.345 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: sayHello (3); status: COMPLETED; exit: 0; error: -; workDir: /home/wangyang/workspace/nextflow-java-api/workDir/65373a24d8fb1f4a1d32faf7/work/7c/3393da542145f86679a8b9e0a1c2ae]
+Oct-24 17:15:54.348 [main] DEBUG nextflow.Session - Session await > all processes finished
+Oct-24 17:15:54.348 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Oct-24 17:15:54.358 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=4; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=44ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=4; peakMemory=0; ]
+Oct-24 17:15:54.556 [main] INFO  nextflow.hello.HelloObserver - Pipeline complete! 👋
+Oct-24 17:15:54.560 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Oct-24 17:15:54.569 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Oct-24 17:15:54.569 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

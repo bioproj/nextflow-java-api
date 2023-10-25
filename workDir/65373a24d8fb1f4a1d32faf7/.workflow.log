@@ -1,0 +1,10 @@
+http-nio-8080-exec-3: N E X T F L O W  ~  version 22.11.0-edge
+http-nio-8080-exec-3: Repository URL: http://192.168.10.178:3000/mbiolance-bioinfo/nf-rnaseq.git; Project: mbiolance-bioinfo/nf-rnaseq; Hub provider: mygitea
+http-nio-8080-exec-3: Pulling mbiolance-bioinfo/nf-rnaseq ...
+http-nio-8080-exec-3: Pulling mbiolance-bioinfo/nf-rnaseq -- Using remote clone url: http://192.168.10.178:3000/mbiolance-bioinfo/nf-rnaseq.git
+http-nio-8080-exec-3:  downloaded from http://192.168.10.178:3000/mbiolance-bioinfo/nf-rnaseq.git
+http-nio-8080-exec-3: Launching `http://192.168.10.178:3000/mbiolance-bioinfo/nf-rnaseq` [workflow-65373a24d8fb1f4a1d32faf7-44] DSL2 - revision: 438febcbe3 [master]
+http-nio-8080-exec-3: Pipeline is starting! 🚀
+http-nio-8080-exec-3: 请输入genome!
+http-nio-8080-exec-3: 
+http-nio-8080-exec-3: 

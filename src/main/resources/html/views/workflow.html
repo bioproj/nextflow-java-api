@@ -4,24 +4,24 @@
 			<h6 class="card-header">Workflow</h6>
 
 			<form class="card-body" name="form">
-				<div class="form-group row" ng-show="workflow._id != '0'">
+				<div class="form-group row" ng-show="workflow.id != '0'">
 					<label class="col-sm-3 col-form-label">ID</label>
 					<div class="col-sm-9">
-						<p class="form-control-plaintext">{{workflow._id}}</p>
+						<p class="form-control-plaintext">{{workflow.id}}</p>
 					</div>
 				</div>
 
-				<div class="form-group row" ng-show="workflow._id != '0'">
+				<div class="form-group row" ng-show="workflow.id != '0'">
 					<label class="col-sm-3 col-form-label">Date Created</label>
 					<div class="col-sm-9">
-						<p class="form-control-plaintext">{{workflow.date_created | date:'short'}}</p>
+						<p class="form-control-plaintext">{{workflow.dateCreated | date:'short'}}</p>
 					</div>
 				</div>
 
-				<div class="form-group row" ng-show="workflow._id != '0'">
+				<div class="form-group row" ng-show="workflow.id != '0'">
 					<label class="col-sm-3 col-form-label">Date Submitted</label>
 					<div class="col-sm-9">
-						<p class="form-control-plaintext">{{workflow.date_submitted | date:'short'}}</p>
+						<p class="form-control-plaintext">{{workflow.dateSubmitted | date:'short'}}</p>
 					</div>
 				</div>
 
@@ -36,7 +36,20 @@
 					</div>
 				</div>
 
+			
+
 				<div class="form-group row">
+					<label class="col-sm-3 col-form-label">Pipeline</label>
+					<div class="col-sm-9">
+						<select
+							class="form-control"
+							name="params_format"
+							ng-model="workflow.pipeline">
+							<option ng-repeat="f in gitea" value="{{f.cloneUrl}}">{{f.name}}</option>
+						</select>
+					</div>
+				</div>
+				<!-- <div class="form-group row">
 					<label class="col-sm-3 col-form-label">Pipeline</label>
 					<div class="col-sm-9">
 						<input
@@ -47,7 +60,10 @@
 							required
 						/>
 					</div>
-				</div>
+				</div> -->
+				<!-- <p class="form-control-plaintext" ng-repeat="f in workflow.inputFiles">
+					<a ng-href="api/workflows/{{workflow.id}}/download?path={{f}}" download>{{f}}</a>
+				</p> -->
 
 				<div class="form-group row">
 					<label class="col-sm-3 col-form-label">Profiles</label>
@@ -81,7 +97,7 @@
 						<select
 							class="form-control"
 							name="params_format"
-							ng-model="workflow.params_format">
+							ng-model="workflow.paramsFormat">
 							<option value="json">JSON</option>
 							<option value="yaml">YAML</option>
 						</select>
@@ -95,7 +111,7 @@
 							class="form-control"
 							rows="8"
 							name="params_data"
-							ng-model="workflow.params_data">
+							ng-model="workflow.paramsData">
 						</textarea>
 					</div>
 				</div>
@@ -107,7 +123,7 @@
 							class="form-control"
 							ng-class="{'is-invalid': form.input_dir.$touched && form.input_dir.$invalid}"
 							name="input_dir"
-							ng-model="workflow.input_dir"
+							ng-model="workflow.inputDir"
 							required
 						/>
 					</div>
@@ -120,37 +136,37 @@
 							class="form-control"
 							ng-class="{'is-invalid': form.output_dir.$touched && form.output_dir.$invalid}"
 							name="output_dir"
-							ng-model="workflow.output_dir"
+							ng-model="workflow.outputDir"
 							required
 						/>
 					</div>
 				</div>
 
-				<div class="form-group row" ng-show="workflow._id != '0'">
+				<div class="form-group row" ng-show="workflow.id != '0'">
 					<label class="col-sm-3 col-form-label">Input Files</label>
 					<div class="col-sm-9">
-						<p class="form-control-plaintext" ng-show="workflow.input_files.length == 0">none</p>
-						<p class="form-control-plaintext" ng-repeat="f in workflow.input_files">
-							<a ng-href="api/workflows/{{workflow._id}}/download?path={{f}}" download>{{f}}</a>
+						<p class="form-control-plaintext" ng-show="workflow.inputFiles.length == 0">none</p>
+						<p class="form-control-plaintext" ng-repeat="f in workflow.inputFiles">
+							<a ng-href="api/workflows/{{workflow.id}}/download?path={{f}}" download>{{f}}</a>
 						</p>
 					</div>
 				</div>
 
-				<div class="form-group row" ng-show="workflow._id != '0'">
+				<div class="form-group row" ng-show="workflow.id != '0'">
 					<label class="col-sm-3 col-form-label">Output Files</label>
 					<div class="col-sm-9">
 						<p class="form-control-plaintext" ng-show="workflow.output_files.length == 0">none</p>
-						<p class="form-control-plaintext" ng-repeat="f in workflow.output_files">
-							<a ng-href="api/workflows/{{workflow._id}}/download?path={{f}}" download>{{f}}</a>
+						<p class="form-control-plaintext" ng-repeat="f in workflow.outputFiles">
+							<a ng-href="api/workflows/{{workflow.id}}/download?path={{f}}" download>{{f}}</a>
 						</p>
 					</div>
 				</div>
 
-				<div class="form-group row" ng-show="workflow.output_data">
+				<div class="form-group row" ng-show="workflow.outputData">
 					<label class="col-sm-3 col-form-label">Output Data</label>
 					<div class="col-sm-9">
 						<p class="form-control-plaintext">
-							<a ng-href="api/workflows/{{workflow._id}}/download" download>Download</a>
+							<a ng-href="api/workflows/{{workflow.id}}/download" download>Download</a>
 						</p>
 					</div>
 				</div>
@@ -164,7 +180,7 @@
 			</form>
 		</div>
 
-		<div class="card mb-4" ng-show="workflow._id != '0'">
+		<div class="card mb-4" ng-show="workflow.id != '0'">
 			<h6 class="card-header">Input Data</h6>
 
 			<form class="card-body form-horizontal" name="input_files">
@@ -187,7 +203,7 @@
 			</form>
 		</div>
 
-		<div class="card mb-4" ng-show="workflow._id != '0'">
+		<div class="card mb-4" ng-show="workflow.id != '0'">
 			<h6 class="card-header">Execution</h6>
 
 			<form class="card-body form-horizontal" name="execution">
@@ -210,17 +226,17 @@
 				</div>
 
 				<div class="text-center">
-					<button type="button" class="btn btn-outline-dark" ng-disabled="workflow.status == 'running'" ng-click="workflow.status != 'running' && launch(workflow._id)">
+					<button type="button" class="btn btn-outline-dark" ng-disabled="workflow.status == 'running'" ng-click="workflow.status != 'running' && launch(workflow.id)">
 						<span ng-show="launching" class="spinner-border spinner-border-sm"></span>
 						<span ng-show="!launching">Launch</span>
 					</button>
 
-					<button type="button" class="btn btn-outline-dark" ng-disabled="workflow.status == 'running'" ng-click="workflow.status != 'running' && resume(workflow._id)">
+					<button type="button" class="btn btn-outline-dark" ng-disabled="workflow.status == 'running'" ng-click="workflow.status != 'running' && resume(workflow.id)">
 						<span ng-show="resuming" class="spinner-border spinner-border-sm"></span>
 						<span ng-show="!resuming">Resume</span>
 					</button>
 
-					<button type="button" class="btn btn-outline-dark" ng-disabled="workflow.status != 'running'" ng-click="workflow.status == 'running' && cancel(workflow._id)">
+					<button type="button" class="btn btn-outline-dark" ng-disabled="workflow.status != 'running'" ng-click="workflow.status == 'running' && cancel(workflow.id)">
 						<span ng-show="cancelling" class="spinner-border spinner-border-sm"></span>
 						<span ng-show="!cancelling">Cancel</span>
 					</button>

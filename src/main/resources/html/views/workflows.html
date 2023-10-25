@@ -24,9 +24,9 @@
 
 				<tr ng-repeat="w in workflows">
 					<td>
-						<a ng-href="#!/workflows/{{w._id}}">{{w._id.slice(0, 8)}}</a>
+						<a ng-href="#!/workflows/{{w.id}}">{{w.id.slice(0, 8)}}</a>
 					</td>
-					<td>{{w.date_created | date:'short'}}</td>
+					<td>{{w.dateCreated | date:'short'}}</td>
 					<td>{{w.name}}</td>
 					<td>{{w.pipeline}}</td>
 					<td>
