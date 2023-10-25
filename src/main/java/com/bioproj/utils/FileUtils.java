@@ -2,6 +2,7 @@ package com.bioproj.utils;
 
 import com.google.common.base.Joiner;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -65,6 +66,28 @@ public class FileUtils {
                 }
             }
         }
+    }
+    public static void createFile(MultipartFile file, String path){
+        //存储文件
+        try {
+            //保存文件
+            BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(path));
+            outputStream.write(file.getBytes());
+            outputStream.flush();
+            outputStream.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * 将file转换为inputStream
+     * @param file
+     * @return
+     * @throws FileNotFoundException
+     */
+    public static InputStream file2InputStream(File file) throws FileNotFoundException {
+        return new FileInputStream(file);
     }
 
 }

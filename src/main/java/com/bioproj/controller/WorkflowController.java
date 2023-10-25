@@ -1,12 +1,15 @@
 package com.bioproj.controller;
 
 
+import cn.hutool.core.io.IoUtil;
 import com.bioproj.pojo.Log;
 import com.bioproj.pojo.Workflows;
 import com.bioproj.service.IProcessService;
 import com.bioproj.service.IWorkflowService;
 import com.bioproj.utils.BaseResponse;
 import com.bioproj.utils.FileUtils;
+import com.bioproj.utils.IOUtils;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +17,16 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.FileSystem;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -169,12 +176,45 @@ public class WorkflowController {
     @GetMapping("/add")
     public String add( ){
         Workflows workflow = new Workflows();
-
-
         workflow.setOutputFiles(Arrays.asList("aaa","bbb"));
         workflow.setName("12346");
-
         workflowService.save(workflow);
         return "";
     }
+
+    @Value("${scriptDir}")
+    String scriptDir;
+
+
+    @PostMapping("/{id}/upload")
+    public BaseResponse upload(@PathVariable("id") String id, MultipartFile file){
+        Workflows workflows = workflowService.findById(id);
+        String filesPath = "input/"+file.getOriginalFilename();;
+        String filePathWrite = scriptDir + "/" + filesPath;
+        File desFile = new File(filePathWrite);
+        if (!desFile.exists()) {
+            desFile.getParentFile().mkdirs();
+        }
+        FileUtils.createFile(file,filePathWrite);
+        List<String> inputFiles = workflows.getInputFiles();
+        if (null == inputFiles) {
+            inputFiles = new ArrayList<>();
+        }
+        inputFiles.add(filesPath);
+        workflows.setInputFiles(inputFiles);
+        workflowService.update(id,workflows);
+        return BaseResponse.ok("success!");
+    }
+    @GetMapping("/{id}/download")
+    public void download(@PathVariable("id") String id, @RequestParam String path,HttpServletResponse response) throws Exception {
+        Workflows workflows = workflowService.findById(id);
+        String filePath = scriptDir + "/" + path;
+        File file = new File(filePath);
+        InputStream inputStream = FileUtils.file2InputStream(file);
+        response.setContentType("application/x-jpg;charset=utf-8");
+        byte[] read = IOUtils.read(inputStream);
+        IoUtil.write(response.getOutputStream(),true,read);
+    }
+
+
 }

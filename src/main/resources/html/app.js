@@ -272,7 +272,7 @@ app.controller('WorkflowCtrl', ['$scope', '$interval', '$route', 'alert', 'api',
 	$scope.gitea = []
 
 	$scope.uploader = new FileUploader({
-		 url: `${window.location.pathname}api/workflows/${$route.current.params.id}/upload`
+		 url: `/api/workflows/${$route.current.params.id}/upload`
 	})
 
 	$scope.uploader.onCompleteAll = function() {
