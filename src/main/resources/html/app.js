@@ -374,8 +374,8 @@ app.controller('WorkflowCtrl', ['$scope', '$interval', '$route', 'alert', 'api',
 	// initialize
 	api.Workflow.get($route.current.params.id)
 		.then(function(workflow) {
-			$scope.workflow = workflow
 
+			$scope.workflow = workflow
 			if ( $scope.workflow.id !== '0' ) {
 				$scope.fetchLog()
 			}
