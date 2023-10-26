@@ -139,21 +139,70 @@ public class WorkflowController {
         }
 
         workflows = workflowService.update(workflows.getId(), workflows);
-        Boolean resume =true;
+        Integer resume = 1;
 
-        processService.launch(workflows,resume);
+        processService.launchAndResume(workflows,resume);
 
         return BaseResponse.ok("success!");
+    }
+    @PostMapping("/{id}/resume")
+    public BaseResponse resume(@PathVariable("id") String id){
+        Workflows workflows = workflowService.findById(id);
+        if(workflows.getWorkDir()==null){
+            workflows.setWorkDir(workDir);
+        }
+        workflows.setStatus("running");
+        workflows.setDateSubmitted(new Date());
+        if(workflows.getAttempts()==null){
+            workflows.setAttempts(1);
+        }else {
+            workflows.setAttempts(workflows.getAttempts()+1);
+        }
+
+        workflows = workflowService.update(workflows.getId(), workflows);
+        Integer resume = 2;
+
+        processService.launchAndResume(workflows,resume);
+
+        return BaseResponse.ok("success!");
+
     }
     @RequestMapping("/{id}/cancel")
     public Workflows WorkflowCancelHandler(@PathVariable("id") String id){
         Workflows workflows = workflowService.findById(id);
         workflows.setStatus("failed");
+        processService.launchAndResume(workflows,3);
         workflows.setPid(-1);
         workflows = workflowService.save(workflows);
+
         return workflows;
 
     }
+    public void killByPid(String str) {
+        final String[] Array = { "ntsd.exe", "-c", "q", "-p", str };
+        int i = 0;
+        try {
+            Process process = Runtime.getRuntime().exec(Array);
+            process.waitFor();
+        } catch (InterruptedException e) {
+            System.out.println("run err!");
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (i != 0) {
+            try {
+                Process process = Runtime.getRuntime().exec(Array);
+                process.waitFor();
+            } catch (InterruptedException e) {
+                System.out.println("err!");
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     @GetMapping("/{id}/log")
     public Log WorkflowLogHandler(@PathVariable("id") String id){
@@ -190,7 +239,7 @@ public class WorkflowController {
     public BaseResponse upload(@PathVariable("id") String id, MultipartFile file){
         Workflows workflows = workflowService.findById(id);
         String filesPath = "input/"+file.getOriginalFilename();;
-        String filePathWrite = scriptDir + "/" + filesPath;
+        String filePathWrite = scriptDir+ "/"+ id + "/" + filesPath;
         File desFile = new File(filePathWrite);
         if (!desFile.exists()) {
             desFile.getParentFile().mkdirs();
@@ -208,7 +257,7 @@ public class WorkflowController {
     @GetMapping("/{id}/download")
     public void download(@PathVariable("id") String id, @RequestParam String path,HttpServletResponse response) throws Exception {
         Workflows workflows = workflowService.findById(id);
-        String filePath = scriptDir + "/" + path;
+        String filePath = scriptDir + "/"+ id + "/" + path;
         File file = new File(filePath);
         InputStream inputStream = FileUtils.file2InputStream(file);
         response.setContentType("application/x-jpg;charset=utf-8");

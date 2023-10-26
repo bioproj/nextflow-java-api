@@ -100,7 +100,7 @@ app.service('api', ['$http', '$q', function($http, $q) {
 	function httpRequest(method, url, params, data) {
 		return $http({
 			method: method,
-			url: "/" + url,
+			url: "/pipeline/" + url,
 			params: params,
 			data: data
 		}).then(function(res) {

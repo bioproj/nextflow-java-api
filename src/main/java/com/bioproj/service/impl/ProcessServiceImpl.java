@@ -14,7 +14,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
+
 
 @Service
 @Slf4j
@@ -31,42 +31,50 @@ public class ProcessServiceImpl implements IProcessService {
         return "workflow-"+workflows.getId()+"-"+workflows.getAttempts();
     }
 
+
     @Override
     @Async("taskExecutor")
-    public void launch(Workflows workflows, Boolean resume) {
-
+    public void launchAndResume(Workflows workflows, Integer resume) {
         try {
             String runName = getRunName(workflows);
-
             Path workPath = Paths.get(workflows.getWorkDir(),workflows.getId());
             if(!workPath.toFile().exists()){
                 Files.createDirectories(workPath);
             }
             String cmdLog = workPath+ File.separator+".workflow.log";
             String logPath = workflows.getOutputDir()+File.separator+"nextflow.log";
-
-
-
-
-            final String[] args  = new String[]{
-                    "nf","-log",logPath,"run",workflows.getPipeline(),"-name",runName,"-profile",workflows.getProfiles()
-            };
-
+            String[] args  = null;
+            if (resume == 1) {
+                args  = new String[]{
+                        "/home/wangyang/bin/nf","-log",logPath,"run",workflows.getPipeline(),"-name",runName,"-profile",workflows.getProfiles(),"-resume"
+                };
+            }else if (resume == 2) {
+                args  = new String[]{
+                        "/home/wangyang/bin/nf","-log",logPath,"run",workflows.getPipeline(),"-name",runName,"-profile",workflows.getProfiles()
+                };
+            }else if (resume == 3){
+                args  = new String[]{
+                        "/usr/bin/kill","-9",String.valueOf(workflows.getPid())
+                };
+            }
             OutputStream logStream=null;
             try {
                 ProcessBuilder processBuilder = new ProcessBuilder();
                 processBuilder.directory(workPath.toFile());
-
                 processBuilder.command(args);
                 processBuilder.redirectErrorStream(true);
                 Process process = processBuilder.start();
                 long pid = process.pid();
-                log.info(workPath.toString()+", pid:"+pid);
-                log.info("{}: saving workflow pid...",pid);
-                workflows.setPid(pid);
-                workflowService.save(workflows);
-                log.info("{}: waiting for workflow to finish...",pid);
-
+                if (resume == 1 || resume == 2) {
+                    log.info(workPath.toString()+", pid:"+pid);
+                    log.info("{}: saving workflow pid...",pid);
+                    workflows.setPid(pid);
+                    workflowService.save(workflows);
+                    log.info("{}: waiting for workflow to finish...",pid);
+                }
+                if(resume == 3){
+                    log.info("kill OK  {}: ",pid);
+                }
                 logStream = new FileOutputStream(cmdLog);
                 try (final BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))){
                     String line;
@@ -76,20 +84,19 @@ public class ProcessServiceImpl implements IProcessService {
                         logStream.write(msg.getBytes());
                     }
                 }
-
                 process.waitFor();
                 int exit = process.exitValue();
-                if(exit==0){
-                    workflows.setStatus("completed");
-                    log.info("{}: workflow completed",pid);
-                    workflowService.save(workflows);
-                }else {
-                    workflows.setStatus("failed");
-                    log.info("{}: workflow failed",pid);
-                    workflowService.save(workflows);
+                if (resume == 1 || resume == 2) {
+                    if(exit==0){
+                        workflows.setStatus("completed");
+                        log.info("{}: workflow completed",pid);
+                        workflowService.save(workflows);
+                    }else {
+                        workflows.setStatus("failed");
+                        log.info("{}: workflow failed",pid);
+                        workflowService.save(workflows);
+                    }
                 }
-//                log.info("{}: saving output data...",pid);
-
 
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -104,23 +111,10 @@ public class ProcessServiceImpl implements IProcessService {
                     }
                 }
             }
-
-
-
-//            executorService.submit(new Runnable() {
-//                @Override
-//                public void run() {
-//
-//            });
-//
-
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
-
-
     }
+
+
 }
