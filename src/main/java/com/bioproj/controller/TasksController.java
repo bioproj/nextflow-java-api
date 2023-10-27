@@ -53,23 +53,23 @@ public class TasksController {
     }
 
     @GetMapping("/pipelines/{name}")
-    public Map<String,String> pipelines(@RequestParam("name") String name){
+    public Map<String,String> pipelines(@PathVariable("name") String name){
         return new HashMap<>();
     }
     @GetMapping("/archive/{name}/download")
-    public Map<String,String> download(@RequestParam("name") String name){
+    public Map<String,String> download(@PathVariable("name") String name){
         return new HashMap<>();
     }
     @GetMapping("/archive/{name}")
-    public Map<String,String> archive(@RequestParam("name") String name){
+    public Map<String,String> archive(@PathVariable("name") String name){
         return new HashMap<>();
     }
     @GetMapping("/visualize")
-    public Map<String,String> visualize(@RequestParam("name") String name){
+    public Map<String,String> visualize(){
         return new HashMap<>();
     }
     @GetMapping("/{id}")
-    public Task id(@RequestParam("id") String id){
+    public Task id(@PathVariable("id") String id){
         return taskService.findById(id);
     }
 
