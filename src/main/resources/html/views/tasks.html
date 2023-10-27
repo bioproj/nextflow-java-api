@@ -33,10 +33,10 @@
 
 				<tr ng-repeat="t in tasks">
 					<td>
-						<a ng-href="#!/tasks/{{t._id}}">{{t._id.slice(0, 8)}}</a>
+						<a ng-href="#!/tasks/{{t.id}}">{{t.id.slice(0, 8)}}</a>
 					</td>
 					<td>{{t.runName}}</td>
-					<td>{{t.utcTime | date:'short'}}</td>
+					<td>{{t.time | date:'short'}}</td>
 					<td>{{t.event}}</td>
 				</tr>
 			</table>

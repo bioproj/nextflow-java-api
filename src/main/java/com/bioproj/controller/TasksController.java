@@ -37,18 +37,19 @@ public class TasksController {
 
     @PostMapping
     public Task save(@RequestBody Task task){
+        task.setTime(new Date());
         Task save = taskService.save(task);
         return save;
     }
 
     @GetMapping("/{id}/log")
-    public Task byId(@RequestParam("id") String id){
-        return taskService.findById(id);
+    public Map<String, String> log(@RequestParam("id") String id){
+        return taskService.findLogById(id);
     }
 
     @GetMapping("/pipelines")
-    public Map<String,String> pipelines(){
-        return new HashMap<>();
+    public List<Task> pipelines(){
+            return taskService.list();
     }
 
     @GetMapping("/pipelines/{name}")
