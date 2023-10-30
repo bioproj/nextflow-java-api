@@ -6,7 +6,7 @@ spring:
   security:
     user:
       name: shanjun
-      password: shanjun
+      password: shanjunshanjun
   data:
     mongodb:
       host: localhost
