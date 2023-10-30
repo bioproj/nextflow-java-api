@@ -3,9 +3,10 @@ package com.bioproj.service.impl;
 import com.bioproj.pojo.Users;
 import com.bioproj.repository.UsersRepository;
 import com.bioproj.service.IUsersService;
-import jakarta.annotation.Resource;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 @Service
 public class UsersServiceImpl implements IUsersService {
@@ -18,7 +19,7 @@ public class UsersServiceImpl implements IUsersService {
         Users user = new Users();
         user.setUserNo(userNo);
         Example<Users> example = Example.of(user);
-        return !repository.findOne(example).isEmpty();
+        return null != repository.findOne(example).orElse(null);
     }
 
     @Override
@@ -27,7 +28,7 @@ public class UsersServiceImpl implements IUsersService {
         user.setUserNo(userNo);
         user.setPassWord(passWord);
         Example<Users> example = Example.of(user);
-        return repository.findOne(example).isEmpty();
+        return repository.findOne(example).orElse(null) == null;
     }
 
     @Override
@@ -47,7 +48,7 @@ public class UsersServiceImpl implements IUsersService {
             Users user = new Users();
             user.setUserNo(userNo);
             Example<Users> example = Example.of(user);
-            Users users = repository.findOne(example).orElseThrow();
+            Users users = repository.findOne(example).get();
             users.setPassWord("123456");
             Users save = repository.save(users);
             return save;

@@ -3,16 +3,15 @@ package com.bioproj.service.impl;
 import com.bioproj.pojo.Task;
 import com.bioproj.pojo.Workflows;
 import com.bioproj.repository.TaskRepository;
-import com.bioproj.repository.WorkflowRepository;
 import com.bioproj.service.ITaskService;
 import com.bioproj.service.IWorkflowService;
 import com.bioproj.utils.FileUtils;
-import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.io.File;
 import java.util.*;
 
@@ -38,9 +37,8 @@ public class TaskServiceImpl implements ITaskService {
         String event = task.getEvent();
         Map<String, Object> trace = task.getTrace();
         if ("process_completed".equals(event)) {
-            List<String> filenames = new ArrayList<>(Arrays.asList(".command.log",".command.out",".command.err"));
+            List<String> filenames = new ArrayList<>(Arrays.asList(".command.log", ".command.out", ".command.err"));
             String workdir1 = trace.get("workdir").toString();
-
 
 
         }
@@ -50,10 +48,10 @@ public class TaskServiceImpl implements ITaskService {
             String task_workflow_status = task.getMetadata().get("workflow").toString();
             if ("success".equals(task_workflow_status)) {
                 workflows.setStatus("completed");
-            }else{
+            } else {
                 workflows.setStatus("failed");
             }
-            workflowService.update(workFlow_Id,workflows);
+            workflowService.update(workFlow_Id, workflows);
         }
         return repository.save(task);
     }
@@ -67,21 +65,21 @@ public class TaskServiceImpl implements ITaskService {
     public Map<String, String> findLogById(String id) {
         Task task = repository.findById(id).orElseThrow(() -> new RuntimeException("Workflows not found."));
         String workdir_path = task.getTrace().get("workdir").toString();
-        Map<String,String> data = new HashMap<>();
-        data.put("id",task.getId());
-        data.put("out","");
-        data.put("err","");
+        Map<String, String> data = new HashMap<>();
+        data.put("id", task.getId());
+        data.put("out", "");
+        data.put("err", "");
         String out_file_path = workDir + workdir_path + ".command.out";
         String err_file_path = workDir + workdir_path + ".command.err";
         File out_file = new File(out_file_path);
-        if (out_file.exists()){
+        if (out_file.exists()) {
             String out = FileUtils.openFile(out_file);
-            data.put("out",out);
+            data.put("out", out);
         }
         File err_file = new File(err_file_path);
-        if (err_file.exists()){
+        if (err_file.exists()) {
             String err = FileUtils.openFile(err_file);
-            data.put("err",err);
+            data.put("err", err);
         }
         return data;
     }

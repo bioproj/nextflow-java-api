@@ -1,14 +1,9 @@
 package com.bioproj.pojo;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Id;
 import lombok.Data;
-import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.Map;

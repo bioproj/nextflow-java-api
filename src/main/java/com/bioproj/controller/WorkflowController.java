@@ -9,9 +9,7 @@ import com.bioproj.service.IWorkflowService;
 import com.bioproj.utils.BaseResponse;
 import com.bioproj.utils.FileUtils;
 import com.bioproj.utils.IOUtils;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
@@ -19,11 +17,9 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.FileSystem;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -145,6 +141,9 @@ public class WorkflowController {
         processService.launchAndResume(workflows,resume);
 
         return BaseResponse.ok("success!");
+
+
+
     }
     @PostMapping("/{id}/resume")
     public BaseResponse resume(@PathVariable("id") String id){
@@ -232,7 +231,7 @@ public class WorkflowController {
         return BaseResponse.ok("success!");
     }
     @GetMapping("/{id}/download")
-    public void download(@PathVariable("id") String id, @RequestParam String path,HttpServletResponse response) throws Exception {
+    public void download(@PathVariable("id") String id, @RequestParam String path, HttpServletResponse response) throws Exception {
         Workflows workflows = workflowService.findById(id);
         String filePath = scriptDir + "/"+ id + "/" + path;
         File file = new File(filePath);

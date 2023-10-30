@@ -1,14 +1,23 @@
-
-workDir: D:\Git\py-java\nextflow-java-api\workDir
-scriptDir: D:\Git\py-java\nextflow-java-api\workDir
-giteaUrl: http://192.168.10.178:3000
 spring:
+  security:
+    user:
+      name: shanjun
+      password: shanjun
   data:
     mongodb:
       host: 127.0.0.1
       port: 27017
       database: test-api
-
 server:
   servlet:
     context-path: /pipeline
+
+# 工作路径
+workDir: D:\Git\py-java\nextflow-java-api\workDir
+scriptDir: D:\Git\py-java\nextflow-java-api\workDir
+
+#gitea 地址
+giteaUrl: http://192.168.10.177:3000
+
+
+

@@ -1,16 +1,12 @@
 package com.bioproj.controller;
 
 import com.bioproj.pojo.Task;
-import com.bioproj.pojo.Workflows;
 import com.bioproj.service.ITaskService;
-import com.bioproj.utils.FileUtils;
-import jakarta.annotation.Resource;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -48,8 +44,9 @@ public class TasksController {
     }
 
     @GetMapping("/pipelines")
-    public List<Task> pipelines(){
-            return taskService.list();
+    public List<String> pipelines(){
+
+            return null;
     }
 
     @GetMapping("/pipelines/{name}")

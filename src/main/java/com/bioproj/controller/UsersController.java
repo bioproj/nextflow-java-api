@@ -2,9 +2,9 @@ package com.bioproj.controller;
 
 import com.bioproj.pojo.Users;
 import com.bioproj.service.IUsersService;
-import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.UUID;
 
 @RestController
