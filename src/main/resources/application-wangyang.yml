@@ -3,6 +3,10 @@ workDir: /home/wangyang/workspace/nextflow-java-api/workDir
 scriptDir: /home/wangyang/workspace/nextflow-java-api/workDir
 giteaUrl: http://192.168.10.178:3000
 spring:
+  security:
+    user:
+      name: shanjun
+      password: shanjun
   data:
     mongodb:
       host: localhost
