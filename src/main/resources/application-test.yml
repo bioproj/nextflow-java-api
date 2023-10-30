@@ -1,0 +1,18 @@
+spring:
+  security:
+    user:
+      name: shanjun
+      password: shanjunshanjun
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: test-api
+server:
+  servlet:
+    context-path: /pipeline
+  port: 8889
+
+workDir: /data/nextflow-java-api/workDir
+scriptDir: /data/nextflow-java-api/workDir
+giteaUrl: http://192.168.10.177:3000
