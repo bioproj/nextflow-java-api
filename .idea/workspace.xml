@@ -5,37 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f75a145d-d47a-4a98-8918-4f1bc3716db5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/config/TaskPoolConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/controller/FileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/controller/GiteaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/controller/WorkflowController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/handle/MyIgnorePolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/handle/NameTreadFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/pojo/Log.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/pojo/Repos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/service/GiteaHttpService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/service/IGiteaService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/service/IProcessService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/service/impl/GiteaServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/service/impl/ProcessServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/utils/BaseResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/utils/FileUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/utils/SearchQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workDir/main.nf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/scm/AssetManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/scm/GiteeRepositoryProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/scm/RepositoryProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/scm/config/Const.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/scm/config/HubOptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/scm/config/ProviderConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workDir/6538677fb9617f35929432d4/nextflow.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bioproj/config/WebConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/config/WebConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bioproj/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/controller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bioproj/controller/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/controller/WebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bioproj/controller/WorkflowQueryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bioproj/pojo/Workflows.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/pojo/Workflows.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bioproj/repository/WorkflowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/repository/WorkflowRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bioproj/service/IWorkflowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/service/IWorkflowService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bioproj/service/impl/WorkflowServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/service/impl/WorkflowServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/html/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/html/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bioproj/controller/WorkflowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/controller/WorkflowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bioproj/service/GiteaHttpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/service/GiteaHttpService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bioproj/service/impl/ProcessServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bioproj/service/impl/ProcessServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/html/views/workflow.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/html/views/workflow.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/html/views/workflows.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/html/views/workflows.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,18 +50,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/wangyang/workspace/nextflow-java-api",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propCompiler"
-  }
-}]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.bioproj.Application" />
       <module name="nextflow-java-api" />
@@ -89,6 +60,13 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="nextflow-java-api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.bioproj.Application" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -110,20 +88,8 @@
     </task>
     <servers />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/bioproj/service/impl/ProcessServiceImpl.java</url>
-          <line>112</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/bioproj/controller/WorkflowController.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

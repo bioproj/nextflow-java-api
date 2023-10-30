@@ -1,0 +1,7 @@
+Oct-26 10:53:57.968 [main] DEBUG nextflow.cli.Launcher - $> /home/wangyang/workspace/nextflow/build/releases/nextflow-22.11.0-edge-all -log output/nextflow.log run 'http://192.168.10.178:3000/mbiolance-bioinfo/nf-hello.git' -name workflow-6538677fb9617f35929432d4-11 -profile standard
+Oct-26 10:53:58.005 [main] DEBUG nextflow.cli.Launcher - Operation aborted
+nextflow.exception.AbortOperationException: Run name `workflow-6538677fb9617f35929432d4-11` has been already used -- Specify a different one
+	at nextflow.cli.CmdRun.checkRunName(CmdRun.groovy:438)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:297)
+	at nextflow.cli.Launcher.run(Launcher.groovy:491)
+	at nextflow.cli.Launcher.main(Launcher.groovy:650)

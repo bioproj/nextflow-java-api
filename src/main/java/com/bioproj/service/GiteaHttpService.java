@@ -15,6 +15,4 @@ public interface GiteaHttpService {
     @GET("/api/v1/orgs/{org}/repos")
     Call<List<Repos>> getRepos(@Path("org") String org);
 
-
-
 }

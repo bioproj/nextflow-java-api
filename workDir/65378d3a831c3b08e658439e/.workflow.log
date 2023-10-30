@@ -1,0 +1,21 @@
+[Thread-2]: N E X T F L O W  ~  version 22.11.0-edge
+[Thread-2]: Repository URL: http://192.168.10.178:3000/mbiolance-bioinfo/nf-hello.git; Project: mbiolance-bioinfo/nf-hello; Hub provider: mygitea
+[Thread-2]: Pulling mbiolance-bioinfo/nf-hello ...
+[Thread-2]:  Already-up-to-date
+[Thread-2]: Launching `http://192.168.10.178:3000/mbiolance-bioinfo/nf-hello` [workflow-65378d3a831c3b08e658439e-10] DSL2 - revision: 1d71f857bb [master]
+[Thread-2]: Pipeline is starting! 🚀
+[Thread-2]: executor >  local (4)
+[Thread-2]: [00/216e29] process > sayHello (1) [  0%] 0 of 4
+[Thread-2]: 
+[Thread-2]: executor >  local (4)
+[Thread-2]: [00/216e29] process > sayHello (1) [100%] 4 of 4 ✔
+[Thread-2]: Hola world!
+[Thread-2]: 
+[Thread-2]: Ciao world!
+[Thread-2]: 
+[Thread-2]: Hello world!
+[Thread-2]: 
+[Thread-2]: Bonjour world!
+[Thread-2]: 
+[Thread-2]: Pipeline complete! 👋
+[Thread-2]: 

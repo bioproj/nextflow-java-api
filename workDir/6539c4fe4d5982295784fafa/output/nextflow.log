@@ -1,0 +1,76 @@
+Oct-26 14:34:22.654 [main] DEBUG nextflow.cli.Launcher - $> /home/wangyang/workspace/nextflow/build/releases/nextflow-22.11.0-edge-all -log output/nextflow.log run 'http://192.168.10.178:3000/mbiolance-bioinfo/awesome_python.git' -name workflow-6539c4fe4d5982295784fafa-3 -profile standard
+Oct-26 14:34:22.692 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 22.11.0-edge
+Oct-26 14:34:22.709 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/wangyang/.nextflow/plugins; core-plugins: nf-amazon@1.12.0,nf-azure@0.15.0,nf-codecommit@0.1.2,nf-console@1.0.4,nf-ga4gh@1.0.4,nf-google@1.4.5,nf-hello@0.4.0,nf-tower@1.5.6,nf-wave@0.6.0
+Oct-26 14:34:22.719 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-26 14:34:22.719 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-26 14:34:22.723 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Oct-26 14:34:22.730 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-26 14:34:22.739 [main] DEBUG nextflow.scm.ProviderConfig - Using SCM config path: /home/wangyang/.nextflow/scm
+Oct-26 14:34:23.103 [main] DEBUG nextflow.scm.ProviderConfig - Detected SCM config: [providers:[mygitea:[server:http://192.168.10.178:3000, endpoint:http://192.168.10.178:3000/api/v1, platform:gitea], gitee:[user:wangyang1749, password:wy1****, token:a9e****]]]
+Oct-26 14:34:23.117 [main] DEBUG nextflow.scm.RepositoryFactory - Found Git repository result: [RepositoryFactory]
+Oct-26 14:34:23.133 [main] DEBUG nextflow.scm.RepositoryFactory - Git url=nextflow.scm.GitUrl(http, null, 192.168.10.178:3000, mbiolance-bioinfo/awesome_python) -> config=ProviderConfig[name: mygitea, platform: gitea, server: http://192.168.10.178:3000]
+Oct-26 14:34:23.134 [main] INFO  nextflow.scm.AssetManager - Repository URL: http://192.168.10.178:3000/mbiolance-bioinfo/awesome_python.git; Project: mbiolance-bioinfo/awesome_python; Hub provider: mygitea
+Oct-26 14:34:23.139 [main] INFO  nextflow.cli.CmdRun - Pulling mbiolance-bioinfo/awesome_python ...
+Oct-26 14:34:23.139 [main] DEBUG nextflow.scm.RepositoryProvider - Request [credentials -:-] -> http://192.168.10.178:3000/api/v1/repos/mbiolance-bioinfo/awesome_python/raw/nextflow.config
+Oct-26 14:34:23.187 [main] DEBUG nextflow.scm.RepositoryProvider - Response status: 404 -- {"errors":null,"message":"The target couldn't be found.","url":"http://192.168.10.178:3000/api/swagger"}
+
+Oct-26 14:34:23.190 [main] WARN  nextflow.scm.AssetManager - Cannot read project manifest -- Cause: Remote resource not found: http://192.168.10.178:3000/api/v1/repos/mbiolance-bioinfo/awesome_python/raw/nextflow.config
+nextflow.exception.AbortOperationException: Remote resource not found: http://192.168.10.178:3000/api/v1/repos/mbiolance-bioinfo/awesome_python/raw/nextflow.config
+	at nextflow.scm.RepositoryProvider.checkResponse(RepositoryProvider.groovy:234)
+	at nextflow.scm.RepositoryProvider.invoke(RepositoryProvider.groovy:181)
+	at nextflow.scm.GiteaRepositoryProvider.readBytes(GiteaRepositoryProvider.groovy:108)
+	at nextflow.scm.RepositoryProvider.readText(RepositoryProvider.groovy:290)
+	at nextflow.scm.AssetManager.getManifest0(AssetManager.groovy:441)
+	at nextflow.scm.AssetManager.memoizedMethodPriv$getManifest(AssetManager.groovy:434)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1268)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1035)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:1029)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:1012)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:101)
+	at nextflow.scm.AssetManager$_closure2.doCall(AssetManager.groovy)
+	at nextflow.scm.AssetManager$_closure2.doCall(AssetManager.groovy)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:107)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:323)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:274)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1035)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at org.codehaus.groovy.runtime.memoize.Memoize$MemoizeFunction.lambda$call$0(Memoize.java:137)
+	at org.codehaus.groovy.runtime.memoize.ConcurrentCommonCache.getAndPut(ConcurrentCommonCache.java:137)
+	at org.codehaus.groovy.runtime.memoize.ConcurrentCommonCache.getAndPut(ConcurrentCommonCache.java:113)
+	at org.codehaus.groovy.runtime.memoize.Memoize$MemoizeFunction.call(Memoize.java:136)
+	at groovy.lang.Closure.call(Closure.java:406)
+	at nextflow.scm.AssetManager.getManifest(AssetManager.groovy)
+	at nextflow.scm.AssetManager.getMainScriptName(AssetManager.groovy:417)
+	at nextflow.scm.AssetManager.checkValidRemoteRepo(AssetManager.groovy:375)
+	at nextflow.scm.AssetManager.download(AssetManager.groovy:586)
+	at nextflow.cli.CmdRun.getScriptFile0(CmdRun.groovy:514)
+	at nextflow.cli.CmdRun.getScriptFile(CmdRun.groovy:447)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:303)
+	at nextflow.cli.Launcher.run(Launcher.groovy:491)
+	at nextflow.cli.Launcher.main(Launcher.groovy:650)
+Oct-26 14:34:23.193 [main] DEBUG nextflow.scm.RepositoryProvider - Request [credentials -:-] -> http://192.168.10.178:3000/api/v1/repos/mbiolance-bioinfo/awesome_python/raw/main.nf
+Oct-26 14:34:23.205 [main] DEBUG nextflow.scm.RepositoryProvider - Response status: 404 -- {"errors":null,"message":"The target couldn't be found.","url":"http://192.168.10.178:3000/api/swagger"}
+
+Oct-26 14:34:23.206 [main] DEBUG nextflow.cli.Launcher - Operation aborted
+nextflow.exception.AbortOperationException: Remote resource not found: http://192.168.10.178:3000/api/v1/repos/mbiolance-bioinfo/awesome_python/raw/main.nf
+	at nextflow.scm.RepositoryProvider.checkResponse(RepositoryProvider.groovy:234)
+	at nextflow.scm.RepositoryProvider.invoke(RepositoryProvider.groovy:181)
+	at nextflow.scm.GiteaRepositoryProvider.readBytes(GiteaRepositoryProvider.groovy:108)
+	at nextflow.scm.RepositoryProvider.validateFor(RepositoryProvider.groovy:304)
+	at nextflow.scm.AssetManager.checkValidRemoteRepo(AssetManager.groovy:376)
+	at nextflow.scm.AssetManager.download(AssetManager.groovy:586)
+	at nextflow.cli.CmdRun.getScriptFile0(CmdRun.groovy:514)
+	at nextflow.cli.CmdRun.getScriptFile(CmdRun.groovy:447)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:303)
+	at nextflow.cli.Launcher.run(Launcher.groovy:491)
+	at nextflow.cli.Launcher.main(Launcher.groovy:650)

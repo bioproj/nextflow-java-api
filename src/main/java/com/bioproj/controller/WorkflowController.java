@@ -173,6 +173,8 @@ public class WorkflowController {
         workflows.setStatus("failed");
         processService.launchAndResume(workflows,3);
         workflows.setPid(-1);
+
+
         workflows = workflowService.save(workflows);
 
         return workflows;
@@ -240,6 +242,5 @@ public class WorkflowController {
         byte[] read = IOUtils.read(inputStream);
         IoUtil.write(response.getOutputStream(),true,read);
     }
-
 
 }

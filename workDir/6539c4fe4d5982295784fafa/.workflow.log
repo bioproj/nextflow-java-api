@@ -1,0 +1,5 @@
+[Thread-1]: N E X T F L O W  ~  version 22.11.0-edge
+[Thread-1]: Repository URL: http://192.168.10.178:3000/mbiolance-bioinfo/awesome_python.git; Project: mbiolance-bioinfo/awesome_python; Hub provider: mygitea
+[Thread-1]: Pulling mbiolance-bioinfo/awesome_python ...
+[Thread-1]: WARN: Cannot read project manifest -- Cause: Remote resource not found: http://192.168.10.178:3000/api/v1/repos/mbiolance-bioinfo/awesome_python/raw/nextflow.config
+[Thread-1]: Remote resource not found: http://192.168.10.178:3000/api/v1/repos/mbiolance-bioinfo/awesome_python/raw/main.nf

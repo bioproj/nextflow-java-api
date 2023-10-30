@@ -1,0 +1,121 @@
+Oct-27 17:10:11.765 [main] DEBUG nextflow.cli.Launcher - $> /home/wangyang/workspace/nextflow/build/releases/nextflow-22.11.0-edge-all -log output/nextflow.log run 'http://192.168.10.178:3000/mbiolance-bioinfo/nf-example.git' -name workflow-6538677fb9617f35929432d4-65 -profile standard -latest
+Oct-27 17:10:11.829 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 22.11.0-edge
+Oct-27 17:10:11.847 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/wangyang/.nextflow/plugins; core-plugins: nf-amazon@1.12.0,nf-azure@0.15.0,nf-codecommit@0.1.2,nf-console@1.0.4,nf-ga4gh@1.0.4,nf-google@1.4.5,nf-hello@0.4.0,nf-tower@1.5.6,nf-wave@0.6.0
+Oct-27 17:10:11.855 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-27 17:10:11.856 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-27 17:10:11.859 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Oct-27 17:10:11.868 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-27 17:10:11.881 [main] DEBUG nextflow.scm.ProviderConfig - Using SCM config path: /home/wangyang/.nextflow/scm
+Oct-27 17:10:12.246 [main] DEBUG nextflow.scm.ProviderConfig - Detected SCM config: [providers:[mygitea:[server:http://192.168.10.178:3000, endpoint:http://192.168.10.178:3000/api/v1, platform:gitea], gitee:[user:wangyang1749, password:wy1****, token:a9e****]]]
+Oct-27 17:10:12.276 [main] DEBUG nextflow.scm.RepositoryFactory - Found Git repository result: [RepositoryFactory]
+Oct-27 17:10:12.295 [main] DEBUG nextflow.scm.RepositoryFactory - Git url=nextflow.scm.GitUrl(http, null, 192.168.10.178:3000, mbiolance-bioinfo/nf-example) -> config=ProviderConfig[name: mygitea, platform: gitea, server: http://192.168.10.178:3000]
+Oct-27 17:10:12.295 [main] INFO  nextflow.scm.AssetManager - Repository URL: http://192.168.10.178:3000/mbiolance-bioinfo/nf-example.git; Project: mbiolance-bioinfo/nf-example; Hub provider: mygitea
+Oct-27 17:10:12.323 [main] DEBUG nextflow.scm.AssetManager - Git config: /home/wangyang/.nextflow/assets/mbiolance-bioinfo/nf-example/.git/config; branch: master; remote: origin; url: http://192.168.10.178:3000/mbiolance-bioinfo/nf-example.git
+Oct-27 17:10:12.324 [main] INFO  nextflow.cli.CmdRun - Pulling mbiolance-bioinfo/nf-example ...
+Oct-27 17:10:12.324 [main] DEBUG nextflow.scm.AssetManager - Pull pipeline mbiolance-bioinfo/nf-example  -- Using local path: /home/wangyang/.nextflow/assets/mbiolance-bioinfo/nf-example
+Oct-27 17:10:12.532 [main] INFO  nextflow.cli.CmdRun -  Already-up-to-date
+Oct-27 17:10:12.540 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /home/wangyang/.nextflow/assets/mbiolance-bioinfo/nf-example/nextflow.config
+Oct-27 17:10:12.540 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/wangyang/workspace/nextflow-java-api/workDir/6538677fb9617f35929432d4/nextflow.config
+Oct-27 17:10:12.541 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/wangyang/.nextflow/assets/mbiolance-bioinfo/nf-example/nextflow.config
+Oct-27 17:10:12.541 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/wangyang/workspace/nextflow-java-api/workDir/6538677fb9617f35929432d4/nextflow.config
+Oct-27 17:10:12.546 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Oct-27 17:10:12.559 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Oct-27 17:10:12.586 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declararion
+Oct-27 17:10:12.587 [main] INFO  nextflow.cli.CmdRun - Launching `http://192.168.10.178:3000/mbiolance-bioinfo/nf-example` [workflow-6538677fb9617f35929432d4-65] DSL2 - revision: 864fdbc9db [master]
+Oct-27 17:10:12.588 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Oct-27 17:10:12.588 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Oct-27 17:10:12.590 [main] DEBUG nextflow.secret.LocalSecretsProvider - Secrets store: /home/wangyang/.nextflow/secrets/store.json
+Oct-27 17:10:12.592 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@2ab09943] - activable => nextflow.secret.LocalSecretsProvider@2ab09943
+Oct-27 17:10:12.634 [main] DEBUG nextflow.Session - Session UUID: faa02e27-e6b8-4067-850b-a0351d65f504
+Oct-27 17:10:12.634 [main] DEBUG nextflow.Session - Run name: workflow-6538677fb9617f35929432d4-65
+Oct-27 17:10:12.634 [main] DEBUG nextflow.Session - Executor pool size: 12
+Oct-27 17:10:12.642 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Oct-27 17:10:12.658 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 22.11.0-edge build 5828
+  Created: 23-11-2022 16:51 UTC (24-11-2022 00:51 CDT)
+  System: Linux 5.15.0-87-generic
+  Runtime: Groovy 3.0.13 on Java HotSpot(TM) 64-Bit Server VM 11.0.16.1+1-LTS-1
+  Encoding: UTF-8 (UTF-8)
+  Process: 1907258@server [192.168.10.30]
+  CPUs: 12 - Mem: 31.2 GB (542.8 MB) - Swap: 11.4 GB (8.6 GB)
+Oct-27 17:10:12.667 [main] DEBUG nextflow.Session - Work-dir: /home/wangyang/workspace/nextflow-java-api/workDir/6538677fb9617f35929432d4/work [ext2/ext3]
+Oct-27 17:10:12.667 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /home/wangyang/.nextflow/assets/mbiolance-bioinfo/nf-example/bin
+Oct-27 17:10:12.687 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[GoogleLifeSciencesExecutor, AwsBatchExecutor, GoogleBatchExecutor, TesExecutor]
+Oct-27 17:10:12.695 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Oct-27 17:10:12.703 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
+Oct-27 17:10:12.707 [main] DEBUG nextflow.Session - Observer factory: HelloFactory
+Oct-27 17:10:12.708 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Oct-27 17:10:12.719 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Oct-27 17:10:12.825 [main] DEBUG nextflow.Session - Session start
+Oct-27 17:10:12.835 [main] INFO  nextflow.hello.HelloObserver - Pipeline is starting! 🚀
+Oct-27 17:10:12.902 [Actor Thread 1] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:12.997 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Oct-27 17:10:13.013 [main] INFO  nextflow.script.BaseScript - 111111111111111
+Oct-27 17:10:13.058 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-27 17:10:13.058 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-27 17:10:13.062 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Oct-27 17:10:13.065 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=12; memory=31.2 GB; capacity=12; pollInterval=100ms; dumpInterval=5m
+Oct-27 17:10:13.118 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Oct-27 17:10:13.118 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Oct-27 17:10:13.121 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: sayHello, wordCount
+Oct-27 17:10:13.121 [main] DEBUG nextflow.Session - Igniting dataflow network (3)
+Oct-27 17:10:13.121 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > sayHello
+Oct-27 17:10:13.122 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > wordCount
+Oct-27 17:10:13.122 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Oct-27 17:10:13.122 [main] DEBUG nextflow.Session - Session await
+Oct-27 17:10:13.222 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-27 17:10:13.224 [Task submitter] INFO  nextflow.Session - [f2/2b4b90] Submitted process > sayHello (1)
+Oct-27 17:10:13.229 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-27 17:10:13.230 [Task submitter] INFO  nextflow.Session - [b8/3526cb] Submitted process > sayHello (3)
+Oct-27 17:10:13.230 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.233 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-27 17:10:13.233 [Task submitter] INFO  nextflow.Session - [da/52e51c] Submitted process > sayHello (2)
+Oct-27 17:10:13.234 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.238 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-27 17:10:13.239 [Task submitter] INFO  nextflow.Session - [1f/a92d03] Submitted process > sayHello (4)
+Oct-27 17:10:13.239 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.251 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.259 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: sayHello (1); status: COMPLETED; exit: 0; error: -; workDir: /home/wangyang/workspace/nextflow-java-api/workDir/6538677fb9617f35929432d4/work/f2/2b4b9047388b3950dadccc3e761961]
+Oct-27 17:10:13.261 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.272 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: sayHello (3); status: COMPLETED; exit: 0; error: -; workDir: /home/wangyang/workspace/nextflow-java-api/workDir/6538677fb9617f35929432d4/work/b8/3526cb27c740f34023503ca281866e]
+Oct-27 17:10:13.275 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.276 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: sayHello (2); status: COMPLETED; exit: 0; error: -; workDir: /home/wangyang/workspace/nextflow-java-api/workDir/6538677fb9617f35929432d4/work/da/52e51c987bf2d3c5e9689585f740c2]
+Oct-27 17:10:13.276 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-27 17:10:13.276 [Task submitter] INFO  nextflow.Session - [68/1df6b6] Submitted process > wordCount (1)
+Oct-27 17:10:13.279 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: sayHello (4); status: COMPLETED; exit: 0; error: -; workDir: /home/wangyang/workspace/nextflow-java-api/workDir/6538677fb9617f35929432d4/work/1f/a92d03e76bf7c1b3cd65e8a38266bf]
+Oct-27 17:10:13.280 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.281 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-27 17:10:13.281 [Task submitter] INFO  nextflow.Session - [f4/cab9cd] Submitted process > wordCount (2)
+Oct-27 17:10:13.284 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-27 17:10:13.285 [Task submitter] INFO  nextflow.Session - [cc/12c40f] Submitted process > wordCount (4)
+Oct-27 17:10:13.285 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.289 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.290 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Oct-27 17:10:13.291 [Task submitter] INFO  nextflow.Session - [05/324106] Submitted process > wordCount (3)
+Oct-27 17:10:13.294 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.300 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.306 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.310 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.314 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.318 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.325 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.331 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: wordCount (1); status: COMPLETED; exit: 0; error: -; workDir: /home/wangyang/workspace/nextflow-java-api/workDir/6538677fb9617f35929432d4/work/68/1df6b63f138456d0bc8bad8170d4ef]
+Oct-27 17:10:13.334 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: wordCount (2); status: COMPLETED; exit: 0; error: -; workDir: /home/wangyang/workspace/nextflow-java-api/workDir/6538677fb9617f35929432d4/work/f4/cab9cde428b7c0dc42b0bf4517b5e4]
+Oct-27 17:10:13.334 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.337 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: wordCount (4); status: COMPLETED; exit: 0; error: -; workDir: /home/wangyang/workspace/nextflow-java-api/workDir/6538677fb9617f35929432d4/work/cc/12c40f4af1bdad816c1896daea4189]
+Oct-27 17:10:13.339 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.342 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: wordCount (3); status: COMPLETED; exit: 0; error: -; workDir: /home/wangyang/workspace/nextflow-java-api/workDir/6538677fb9617f35929432d4/work/05/324106154ac7c98b1f977485dd63c3]
+Oct-27 17:10:13.343 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.345 [main] DEBUG nextflow.Session - Session await > all processes finished
+Oct-27 17:10:13.346 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.346 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Oct-27 17:10:13.350 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.352 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=8; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=7ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=1; peakMemory=0; ]
+Oct-27 17:10:13.354 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.357 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.361 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.377 [Actor Thread 13] DEBUG nextflow.trace.WebLogObserver - Successfully sent message to http://192.168.10.30:8080/pipeline/api/tasks -- received status code 200.
+Oct-27 17:10:13.451 [main] INFO  nextflow.hello.HelloObserver - Pipeline complete! 👋
+Oct-27 17:10:13.469 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Oct-27 17:10:13.506 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Oct-27 17:10:13.506 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

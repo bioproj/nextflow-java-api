@@ -25,6 +25,13 @@
 					</div>
 				</div>
 
+				<div class="form-group row" ng-show="workflow.id != '0'">
+					<label class="col-sm-3 col-form-label">workspace</label>
+					<div class="col-sm-9">
+						<p class="form-control-plaintext">{{workflow.dateSubmitted | date:'short'}}</p>
+					</div>
+				</div>
+				
 				<div class="form-group row">
 					<label class="col-sm-3 col-form-label">Name</label>
 					<div class="col-sm-9">

@@ -1,0 +1,1 @@
+2023-10-26 10:51:34	1.3s	workflow-6538677fb9617f35929432d4-11	OK	1d71f857bb64af58716575d770ef74baf21313d1	38c4660f-eb4f-43d5-92ce-24fb0ff7ba8d	/home/wangyang/workspace/nextflow/build/releases/nextflow-22.11.0-edge-all -log output/nextflow.log run 'http://192.168.10.178:3000/mbiolance-bioinfo/nf-hello.git' -name workflow-6538677fb9617f35929432d4-11 -profile standard

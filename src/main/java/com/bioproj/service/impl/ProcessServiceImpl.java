@@ -46,11 +46,11 @@ public class ProcessServiceImpl implements IProcessService {
             String[] args  = null;
             if (resume == 1) {
                 args  = new String[]{
-                        "/home/wangyang/bin/nf","-log",logPath,"run",workflows.getPipeline(),"-name",runName,"-profile",workflows.getProfiles(),"-resume"
+                        "/home/wangyang/bin/nf","-log",logPath,"run",workflows.getPipeline(),"-name",runName,"-profile",workflows.getProfiles(),"-latest"
                 };
             }else if (resume == 2) {
                 args  = new String[]{
-                        "/home/wangyang/bin/nf","-log",logPath,"run",workflows.getPipeline(),"-name",runName,"-profile",workflows.getProfiles()
+                        "/home/wangyang/bin/nf","-log",logPath,"run",workflows.getPipeline(),"-name",runName,"-profile",workflows.getProfiles(),"-latest"
                 };
             }else if (resume == 3){
                 args  = new String[]{
